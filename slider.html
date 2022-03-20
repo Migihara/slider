@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            * {
+                margin: 0;
+            }
+            .slider-flex {
+                width: 100vw;
+                overflow: hidden;
+                display: flex;
+                margin-bottom: 50px;
+            }
+
+            .slide {
+                height: 600px;
+                cursor: pointer;
+                color: #fefefe;
+                flex: 1;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                position: relative;
+                transition: all 0.5s ease-in-out;
+                opacity: 0.8;
+            }
+
+            .slide.active {
+                flex: 10;
+                opacity: 1;
+                filter: drop-shadow(0px 4px 64px rgba(255, 255, 255, 0.11));
+            }
+        </style>
+        
+    </head>
+    <body>
+        <div class="slider-flex"> 
+            <div class="slide" style="background-image: url(ded.jpg)"></div>
+            <div class="slide" style="background-image: url(vaucher.jpg)"></div>
+            <div class="slide active" style="background-image: url(nik.jpg)"></div>
+            <div class="slide" style="background-image: url(pyt.jpg)"></div>
+            <div class="slide" style="background-image: url(ded2.jpg)"></div>
+        </div>
+        <script>
+            const slides = document.querySelectorAll('.slide'); 
+
+            for (const slide of slides) {
+                slide.addEventListener('click', () => {
+                    clearActiveClasses(); 
+
+                    slide.classList.add('active'); 
+                })
+            }
+
+            function clearActiveClasses() {
+                slides.forEach((slide) => {  
+                    slide.classList.remove('active'); 
+                })
+            }
+        </script>
+    </body>
+</html>
